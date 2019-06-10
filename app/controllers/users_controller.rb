@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :inbox]
 
   def new
     @user = User.new
@@ -17,6 +17,13 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def inbox
+    render json: @user.received_messages
+  end
+
+  def sent_messages
   end
 
   private

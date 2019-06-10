@@ -13,3 +13,7 @@
 <% @user.sent_messages.each do |message| %>
   <p><%= message.recipient.name %> | <%= message.subject %></p>
 <% end %>
+
+
+<h4><%= link_to "Inbox", inbox_path(@user), class: "load_inbox" %></h4>
+<div id="inbox"></div>
