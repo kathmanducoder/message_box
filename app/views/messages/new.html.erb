@@ -1,0 +1,14 @@
+<%= form_tag("/messages") do %>
+  <%= text_field_tag :recipient_username, nil, placeholder: "To:", size: 40 %>
+  <br>
+  <%= text_field_tag :subject, nil, placeholder: "Subject: ", size: 40 %>
+  <br>
+  <%= text_field_tag :content, nil, placeholder: "Message", size: 40 %>
+  <br>
+  <%= submit_tag "Send Message" %>
+  <br>
+<% end %>
+
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>

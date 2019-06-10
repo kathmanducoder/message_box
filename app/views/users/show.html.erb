@@ -3,3 +3,13 @@
 <%= form_tag("/logout") do %>
   <input type=submit value='Logout'>
 <% end %>
+
+<h4><%= link_to "New Message", new_message_path %></h4>
+<h4>Inbox</h4>
+<% @user.received_messages.each do |message| %>
+  <p><%= message.sender.name %> | <%= message.subject %></p>
+<% end %>
+<h4>Sent Messages</h4>
+<% @user.sent_messages.each do |message| %>
+  <p><%= message.recipient.name %> | <%= message.subject %></p>
+<% end %>
