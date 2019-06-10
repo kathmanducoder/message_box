@@ -1,1 +1,5 @@
 <%= @user.name %>
+
+<%= form_tag("/logout") do %>
+  <input type=submit value='Logout'>
+<% end %>
