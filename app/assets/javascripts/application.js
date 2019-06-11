@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require jquery3
 //= require jquery_ujs
-//= require main
+//= require users
 //= require_tree .

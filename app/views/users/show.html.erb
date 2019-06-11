@@ -17,3 +17,6 @@
 
 <h4><%= link_to "Inbox", inbox_path(@user), class: "load_inbox" %></h4>
 <div id="inbox"></div>
+
+<h4><%= link_to "Sent", sent_messages_path(@user), class: "load_outbox" %></h4>
+<div id="outbox"></div>
