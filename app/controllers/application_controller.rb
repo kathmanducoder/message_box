@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def index
     if logged_in?
-      redirect_to potlucks_path
+      redirect_to current_user
     end
   end
 
@@ -17,5 +17,5 @@ class ApplicationController < ActionController::Base
       User.find_by(id:session[:user_id])
     end
   end
-  
+
 end
