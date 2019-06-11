@@ -16,6 +16,11 @@ class MessagesController < ApplicationController
     end
   end
 
+  def content
+    message = Message.find_by(id: params[:id])
+    render plain: message.content
+  end
+
   private
 
   def message_params
