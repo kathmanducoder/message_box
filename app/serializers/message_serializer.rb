@@ -1,5 +1,5 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :id, :subject, :created_at
+  attributes :id, :content, :created_at
   belongs_to :sender, serializer: UserSerializer
   belongs_to :recipient, serializer: UserSerializer
 
