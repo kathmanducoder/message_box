@@ -12,7 +12,6 @@ class MessagesController < ApplicationController
     else
       message.assign_attributes(sender_id: current_user.id, recipient_id: recipient.id, subject: params[:subject], content: params[:content])
       message.save
-      binding.pry
       redirect_to current_user
     end
   end
