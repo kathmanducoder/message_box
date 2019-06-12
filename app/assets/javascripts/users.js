@@ -63,4 +63,18 @@ $(function(){
     e.preventDefault();
   })
 
+  $("a.load_new_message").on("click", function(e) {
+    $.ajax(
+      {
+        url: this.href,
+        success: function(response) {
+          $("div#mainbox").html("")
+          $("div#mainbox").html(response)
+        }
+      })
+    e.preventDefault();
+  })
+
+
+
 })
