@@ -8,12 +8,11 @@ class MessagesController < ApplicationController
     message = Message.new
     recipient = User.find_by(username: params[:recipient_username])
     if !recipient
-      flash[:error] = `Cannot send message to #{params[:recipient_username]}. User doesn't exist.`
-      redirect_to current_user
+      @reply = "Cannot send message to #{params[:recipient_username]}. User doesn't exist."
     else
-      message.assign_attributes(sender_id: current_user.id, recipient_id: recipient.id, subject: params[:subject], content: params[:content])
+      message.assign_attributes(sender_id: current_user.id, recipient_id: recipient.id, content: params[:content])
       message.save
-      redirect_to current_user
+      @reply = "Successfully sent message to #{params[:recipient_username]}."
     end
   end
 
