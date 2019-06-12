@@ -18,22 +18,4 @@
   </ul>
 </nav>
 
-<%= @user.name %>
-
-
-
-
-<h4></h4>
-<h4>Inbox</h4>
-<% @user.received_messages.each do |message| %>
-  <p><%= message.sender.name %> | <%= message.subject %></p>
-<% end %>
-<h4>Sent Messages</h4>
-<% @user.sent_messages.each do |message| %>
-  <p><%= message.recipient.name %> | <%= message.subject %></p>
-<% end %>
-
-<div id="inbox"></div>
-
-<h4></h4>
-<div id="outbox"></div>
+<div id="mainbox"></div>

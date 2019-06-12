@@ -7,9 +7,9 @@ $(function(){
         success: function(json) {
           let moreMessageHref = '<a id="more_message" href="/messages/';
           json.forEach(function(message) {
-            $("div#inbox").append(message.sender.name)
-            $("div#inbox").append("<br>")
-            $("div#inbox").append
+            $("div#mainbox").append(message.sender.name)
+            $("div#mainbox").append("<br>")
+            $("div#mainbox").append
             (`<div id="body-${message.id}">` + ($.trim(message.content).substring(0,10).trim(this)) + '</div>');
             moreMessageHref = moreMessageHref + message.id + '/content">...</a>';
             let moreMessageLink = $(moreMessageHref).click(function(e) {
@@ -18,12 +18,12 @@ $(function(){
                 });
                 e.preventDefault();
               });
-            $("div#inbox").append(moreMessageLink)
-            $("div#inbox").append("</div>")
+            $("div#mainbox").append(moreMessageLink)
+            $("div#mainbox").append("</div>")
 
-            $("div#inbox").append("<br>")
-            $("div#inbox").append(message.created_at);
-            $("div#inbox").append("<br>")
+            $("div#mainbox").append("<br>")
+            $("div#mainbox").append(message.created_at);
+            $("div#mainbox").append("<br>")
           })
         }
       })
@@ -38,9 +38,9 @@ $(function(){
         success: function(json) {
           let moreMessageHref = '<a id="more_message" href="/messages/';
           json.forEach(function(message) {
-            $("div#outbox").append(message.sender.name)
-            $("div#outbox").append("<br>")
-            $("div#outbox").append
+            $("div#mainbox").append(message.sender.name)
+            $("div#mainbox").append("<br>")
+            $("div#mainbox").append
             (`<div id="body-${message.id}">` + ($.trim(message.content).substring(0,10).trim(this)) + '</div>');
             moreMessageHref = moreMessageHref + message.id + '/content">...</a>';
             let moreMessageLink = $(moreMessageHref).click(function(e) {
@@ -49,12 +49,12 @@ $(function(){
                 });
                 e.preventDefault();
               });
-            $("div#outbox").append(moreMessageLink)
-            $("div#outbox").append("</div>")
+            $("div#mainbox").append(moreMessageLink)
+            $("div#mainbox").append("</div>")
 
-            $("div#outbox").append("<br>")
-            $("div#outbox").append(message.created_at);
-            $("div#outbox").append("<br>")
+            $("div#mainbox").append("<br>")
+            $("div#mainbox").append(message.created_at);
+            $("div#mainbox").append("<br>")
           })
         }
       })
