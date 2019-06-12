@@ -5,6 +5,7 @@ $(function(){
       {
         url: this.href,
         success: function(json) {
+          $("div#mainbox").html("")
           let moreMessageHref = '<a id="more_message" href="/messages/';
           json.forEach(function(message) {
             $("div#mainbox").append(message.sender.name)
@@ -36,6 +37,7 @@ $(function(){
       {
         url: this.href,
         success: function(json) {
+          $("div#mainbox").html("")
           let moreMessageHref = '<a id="more_message" href="/messages/';
           json.forEach(function(message) {
             $("div#mainbox").append(message.sender.name)
