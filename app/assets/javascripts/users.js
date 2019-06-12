@@ -6,6 +6,8 @@ $(function(){
         url: this.href,
         success: function(json) {
           $("div#mainbox").html("")
+          printHeader("inbox");
+
           json.forEach(function(message) {
             createMessageHtml(message, "inbox")
           })
@@ -20,6 +22,8 @@ $(function(){
         url: this.href,
         success: function(json) {
           $("div#mainbox").html("")
+          printHeader("outbox");
+
           json.forEach(function(message) {
             createMessageHtml(message, "outbox")
           })
@@ -41,6 +45,29 @@ $(function(){
   })
 
 })
+
+function printHeader(boxType) {
+  $("div#mainbox").append('<div class="row message-header-row">');
+
+  $(".message-header-row ").append('<div class="col-sm-3 name-header-column">');
+  if (boxType == "inbox") {
+    $(".name-header-column").append('<strong>From</strong>')
+  } else {
+    $(".name-header-column").append('<strong>To</strong>')
+  }
+  $(".message-header-row").append('</div>');
+
+  $(".message-header-row ").append('<div class="col-sm-6 message-header-column">');
+  $(".message-header-column").append('<strong>Message</strong>')
+  $(".message-header-row").append('</div>');
+
+  $(".message-header-row ").append('<div class="col-sm-3 date-header-column">');
+  $(".date-header-column").append('<strong>Date</strong>')
+  $(".message-header-row").append('</div>');
+
+  $("div#mainbox").append('</div>');
+}
+
 
 function createMessageHtml(message, boxType) {
   $("div#mainbox").append('<div class="row message-row">');
