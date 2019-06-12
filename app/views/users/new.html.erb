@@ -1,14 +1,1 @@
-<%= form_for(@user) do |f| %>
-  <%= f.text_field :name, placeholder: "Your Name", size: 40 %>
-  <br>
-  <%= f.text_field :username, placeholder: "Username", size: 40 %>
-  <br>
-  <%= f.password_field :password, placeholder: "Password", size: 40 %>
-  <br>
-  <%= f.submit "Create Account" %>
-  <br>
-<% end %>
-
-<% if flash[:error] %>
-  <%= flash[:error] %>
-<% end %>
+<%= render partial: 'new_user_form', locals: {@user: @user} %>

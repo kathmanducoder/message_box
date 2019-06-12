@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   def index
     if logged_in?
       redirect_to current_user
+    else
+      @user = User.new
+      render erb: 'new'
     end
   end
 
