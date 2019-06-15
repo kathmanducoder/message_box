@@ -70,36 +70,36 @@ function printHeader(boxType) {
 
 
 function createMessageHtml(message, boxType) {
-  $("div#mainbox").append('<div class="row message-row">');
-  let moreMessageHref = '<a id="more_message" href="/messages/';
+
+  $("div#mainbox").append(`<div class="row message-row-${message.id}">`);
 
       //sender/receiver name
-  $(".message-row ").append('<div class="col-sm-3 name-column">');
+  $(`.message-row-${message.id}`).append('<div class="col-sm-3 name-column">');
   if (boxType == "inbox") {
-    $(".name-column").append(message.sender.name)
+    $(`.message-row-${message.id} .name-column`).append(message.sender.name)
   } else {
-    $(".name-column").append(message.recipient.name)
+    $(`.message-row-${message.id} .name-column`).append(message.recipient.name)
   }
-  $(".message-row").append("</div>")
+  $(`.message-row-${message.id}`).append("</div>")
 
     //message content
-  $(".message-row").append('<div class="col-sm-6 message-column">');
-  $(".message-column").append
+  $(`.message-row-${message.id}`).append('<div class="col-sm-6 message-column">');
+  $(`.message-row-${message.id} .message-column`).append
   (`<div id="body-${message.id}" class="message-body">` + ($.trim(message.content).substring(0,30).trim(this)) + '</div>');
-  moreMessageHref = moreMessageHref + message.id + '/content">...</a>';
+  let moreMessageHref = '<a id="more_message" href="/messages/' + message.id + '/content">...</a>';
   let moreMessageLink = $(moreMessageHref).click(function(e) {
       $.get("/messages/" + message.id + "/content", function(data) {
         $("div#body-"+message.id).text(data);
       });
       e.preventDefault();
     });
-  $(".message-column").append(moreMessageLink)
-  $(".message-column").append("</div>")
-  $(".message-row").append("</div>")
+  $(`.message-row-${message.id} .message-column`).append(moreMessageLink)
+  $(`.message-row-${message.id} .message-column`).append("</div>")
+  $(`.message-row-${message.id}`).append("</div>")
 
-  $(".message-row").append('<div class="col-sm-3 date-column">');
-  $(".date-column").append(message.created_at);
-  $(".message-row").append("</div>")
+  $(`.message-row-${message.id}`).append('<div class="col-sm-3 date-column">');
+  $(`.message-row-${message.id} .date-column`).append(message.created_at);
+  $(`.message-row-${message.id}`).append("</div>")
 
   $("div#mainbox").append('</div>');
 }
