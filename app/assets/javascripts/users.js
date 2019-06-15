@@ -84,17 +84,20 @@ function createMessageHtml(message, boxType) {
 
     //message content
   $(`.message-row-${message.id}`).append('<div class="col-sm-6 message-column">');
-  $(`.message-row-${message.id} .message-column`).append
-  (`<div id="body-${message.id}" class="message-body">` + ($.trim(message.content).substring(0,30).trim(this)) + '</div>');
-  let moreMessageHref = '<a id="more_message" href="/messages/' + message.id + '/content">...</a>';
-  let moreMessageLink = $(moreMessageHref).click(function(e) {
-      $.get("/messages/" + message.id + "/content", function(data) {
-        $("div#body-"+message.id).text(data);
+  $(`.message-row-${message.id} .message-column`).append(
+    `<div id="body-${message.id}" class="message-body">` + ($.trim(message.content).substring(0,40).trim(this)) + '</div>'
+  );
+
+  if (message.content.length > 40) {
+    let moreMessageHref = '<a id="more_message" href="/messages/' + message.id + '/content">...</a>';
+    let moreMessageLink = $(moreMessageHref).click(function(e) {
+        $.get("/messages/" + message.id + "/content", function(data) {
+          $("div#body-"+message.id).text(data);
+        });
+        e.preventDefault();
       });
-      e.preventDefault();
-    });
-  $(`.message-row-${message.id} .message-column`).append(moreMessageLink)
-  $(`.message-row-${message.id} .message-column`).append("</div>")
+    $(`.message-row-${message.id} .message-column`).append(moreMessageLink)
+  }
   $(`.message-row-${message.id}`).append("</div>")
 
   $(`.message-row-${message.id}`).append('<div class="col-sm-3 date-column">');
