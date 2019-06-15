@@ -96,7 +96,7 @@ function createMessageHtml(message, boxType) {
         });
         e.preventDefault();
       });
-    $(`.message-row-${message.id} .message-column`).append(moreMessageLink)
+    $(`.message-row-${message.id} .message-column .message-body`).append(moreMessageLink)
   }
   $(`.message-row-${message.id}`).append("</div>")
 
