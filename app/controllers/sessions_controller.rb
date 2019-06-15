@@ -7,11 +7,11 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:username])
     if !user
-      flash[:error] = "User not found."
-      redirect_to login_path
+      flash[:errorlogin] = "User not found."
+      redirect_to root_path
     elsif !user.authenticate(params[:password])
-      flash[:error] = "Incorrect password."
-      redirect_to login_path
+      flash[:errorlogin] = "Incorrect password."
+      redirect_to root_path
     else
       session[:user_id] = user.id
       redirect_to user

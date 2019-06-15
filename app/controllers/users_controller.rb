@@ -11,8 +11,8 @@ class UsersController < ApplicationController
       user.save
       redirect_to user
     else
-      flash[:error] = "Error creating account."
-      redirect_to new_user_path
+      flash[:errorusercreate] = "Error creating account."
+      redirect_to root_path
     end
   end
 
