@@ -1,5 +1,17 @@
 <div class="container">
-<h1>MessageBox</h1>
-<%= render "sessions/login" %>
-<%= render "users/new_user_form" %>
+  <div class="row justify-content-center">
+    <div class="header"><span class="title-part-one">Message</span><span class="title-part-two">Box</span></div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="login-form"><%= render "sessions/login" %></div>
+  </div>
+  <div class="row justify-content-center">
+    <h4 class="text-muted"> Join MessageBox community today </h4>
+  </div>
+  <div class="row justify-content-center">
+    <div class="create-account-form">
+      <%= render "users/new_user_form" %>
+    </div>
+  </div>
+
 </div>
