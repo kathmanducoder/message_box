@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
     if session[:user_id]
       session.delete :user_id
     end
-    redirect_to login_path
+    redirect_to root_path
   end
 
 end
